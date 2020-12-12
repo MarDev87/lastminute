@@ -35,13 +35,13 @@ class ArticleTest {
 	@Test
 	void given_generic_article_not_imported_should_print() {
 		Article article = new Article(1, "generic", 10, false);
-		assertEquals("1 generic: 10,00", article.print());
+		assertEquals("1 generic: 10.00", article.print());
 	}
 
 	@Test
 	void given_generic_article_imported_should_print() {
 		Article article = new Article(1, "generic", 10, true);
-		assertEquals("1 imported generic: 10,00", article.print());
+		assertEquals("1 imported generic: 10.00", article.print());
 	}
 
 }
