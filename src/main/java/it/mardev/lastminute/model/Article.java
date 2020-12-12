@@ -22,7 +22,7 @@ public class Article implements Taxable, Printable {
 	public float getSalesTax() {
 		// TODO CALCOLARE LE TASSE A PARTIRE DAL RATE E DAL PREZZO DI VENDITA
 		float salesTax = salesPrice / (100 + getTaxRate()) * getTaxRate();
-		salesTax = 20 / Math.round(salesTax * 20);
+		salesTax = Math.round(salesTax * 20) / 20;
 
 //		int actualRate = Taxes.Sales.getRate() + (imported ? Taxes.Imported.getRate() : 0);
 //		Double salesPrice = price * actualRate / 100;
