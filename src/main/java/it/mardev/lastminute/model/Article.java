@@ -3,12 +3,8 @@ package it.mardev.lastminute.model;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 
-@NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @EqualsAndHashCode
 @Getter
 public class Article implements Taxable, Printable {

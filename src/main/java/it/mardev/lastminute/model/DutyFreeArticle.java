@@ -1,9 +1,7 @@
 package it.mardev.lastminute.model;
 
 import lombok.EqualsAndHashCode;
-import lombok.ToString;
 
-@ToString
 @EqualsAndHashCode(callSuper = false)
 public class DutyFreeArticle extends Article {
 
