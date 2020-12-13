@@ -21,6 +21,8 @@ public class LastMinuteCommandLineRunner implements CommandLineRunner {
 
 	private ShoppingBasket shoppingBasket = new ShoppingBasket();
 
+	// Command line application for managing a simple Shopping Basket and printing
+	// the receipt with tax calculation
 	@Override
 	public void run(String... args) throws Exception {
 		Scanner scanner = new Scanner(System.in);
