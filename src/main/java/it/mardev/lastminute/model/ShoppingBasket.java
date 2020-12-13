@@ -20,6 +20,10 @@ public class ShoppingBasket implements Printable {
 		return this.articles.add(article);
 	}
 
+	public Article removeArticle(int index) {
+		return this.articles.remove(index);
+	}
+
 	public boolean removeArticle(Article article) {
 		return this.articles.remove(article);
 	}
