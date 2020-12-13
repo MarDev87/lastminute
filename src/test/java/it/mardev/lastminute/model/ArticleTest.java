@@ -19,27 +19,27 @@ class ArticleTest {
 	}
 
 	@Test
-	void given_generic_article_not_imported_with_sales_price_of_11_get_sales_tax_of_1() {
+	void given_generic_article_not_imported_with_sales_price_of_11_get_sales_tax_of_1_1() {
 		Article article = new Article(1, "generic", 11, false);
-		assertEquals(1, article.getSalesTax(), "Standard Sales Tax should be 1€");
+		assertEquals(1.1f, article.getSalesTax(), "Standard Sales Tax should be 1.1€");
 	}
 
 	@Test
-	void given_generic_article_imported_with_sales_price_of_23_get_sales_tax_of_3() {
+	void given_generic_article_imported_with_sales_price_of_23_get_sales_tax_of_3_45() {
 		Article article = new Article(1, "generic", 23, true);
-		assertEquals(3, article.getSalesTax(), "Standard Sales Tax for Imported should be 3€");
+		assertEquals(3.45f, article.getSalesTax(), "Standard Sales Tax for Imported should be 3.45€");
 	}
 
 	@Test
 	void given_generic_article_not_imported_should_print() {
 		Article article = new Article(1, "generic", 10, false);
-		assertEquals("1 generic: 10.00", article.print());
+		assertEquals("1 generic: 11.00", article.print());
 	}
 
 	@Test
 	void given_generic_article_imported_should_print() {
 		Article article = new Article(1, "generic", 10, true);
-		assertEquals("1 imported generic: 10.00", article.print());
+		assertEquals("1 imported generic: 11.50", article.print());
 	}
 
 }

@@ -22,7 +22,7 @@ class ShoppingBasketTest {
 		ShoppingBasket basket = new ShoppingBasket();
 		basket.addArticle(new Article(1, "generic", 10, true));
 		basket.addArticle(new Article(1, "generic", 12, false));
-		assertEquals("1 imported generic: 10.00\n1 generic: 12.00\n", basket.print());
+		assertEquals("1 imported generic: 11.50\n1 generic: 13.20\n", basket.print());
 	}
 
 }
