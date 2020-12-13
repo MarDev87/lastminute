@@ -2,11 +2,9 @@ package it.mardev.lastminute.model;
 
 import java.util.Locale;
 
-import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
-@AllArgsConstructor
 @EqualsAndHashCode
 @Getter
 public class Article implements Taxable, Printable {
@@ -16,11 +14,18 @@ public class Article implements Taxable, Printable {
 	protected float salesPrice;
 	protected boolean imported;
 
+	public Article(int quantity, String name, float salesPrice, boolean imported) {
+		super();
+		this.quantity = quantity;
+		this.name = name.replace("imported", "").replace("  ", " ").trim();
+		this.salesPrice = salesPrice;
+		this.imported = imported;
+	}
+
 	@Override
 	public float getSalesTax() {
-		// TODO CALCOLARE LE TASSE A PARTIRE DAL RATE E DAL PREZZO DI VENDITA
 		float salesTax = salesPrice / (100) * getTaxRate();
-		salesTax = ((float)Math.ceil(salesTax * 20)) / 20f;
+		salesTax = ((float) Math.ceil(salesTax * 20)) / 20f;
 
 		return salesTax;
 	}
@@ -36,7 +41,7 @@ public class Article implements Taxable, Printable {
 
 	@Override
 	public String print() {
-		return String.format(Locale.UK, "%d %s: %.2f", quantity, name,
+		return String.format(Locale.UK, "%d %s%s: %.2f", quantity, imported ? "imported " : "", name,
 				salesPrice + getSalesTax());
 	}
 
