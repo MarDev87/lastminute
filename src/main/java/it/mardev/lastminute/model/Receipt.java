@@ -1,22 +1,33 @@
 package it.mardev.lastminute.model;
 
-import java.util.List;
+import java.util.Locale;
 
 public class Receipt implements Printable {
 
-	private static final String NEW_LINE = "\n";
-	private static final String SALES_TAXES = "Sales Taxes";
-	private static final String TOTAL = "Total";
-	private static final String BLANK_SPACE = " ";
-	private static final String COLON = ":";
-
-	private List<Article> articles;
+	private ShoppingBasket shoppingBasket;
 	private float total;
 	private float salesTaxes;
+
+	public Receipt(ShoppingBasket shoppingBasket) {
+		this.shoppingBasket = shoppingBasket;
+		this.total = 0;
+		for (Article article : shoppingBasket.getArticles()) {
+			total += article.getSalesPrice();
+			salesTaxes += article.getSalesTax();
+		}
+	}
+
 	@Override
 	public String print() {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuilder sb = new StringBuilder();
+		sb.append(shoppingBasket.print());
+		sb.append(String.format(Locale.UK, "Sales Taxes:%.2f\n", salesTaxes));
+		sb.append(String.format(Locale.UK, "Total: %.2f", total));
+		return sb.toString();
+	}
+
+	public void printToConsole() {
+		System.out.println(print());
 	}
 
 }
