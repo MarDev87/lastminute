@@ -13,7 +13,7 @@ class ShoppingBasketTest {
 	void given_a_shopping_basket_return_unmodifiable_article_list() {
 		ShoppingBasket basket = new ShoppingBasket();
 		List<Article> articles = basket.getArticles();
-		assertThrows(UnsupportedOperationException.class, () -> articles.add(new Article(0, null, 0, false)),
+		assertThrows(UnsupportedOperationException.class, () -> articles.add(new Article(0, "", 0, false)),
 				"The list should not be editable");
 	}
 
