@@ -1,5 +1,7 @@
 package it.mardev.lastminute.model;
 
+import java.util.Locale;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -34,7 +36,7 @@ public class Article implements Taxable, Printable {
 
 	@Override
 	public String print() {
-		return String.format("%d %s%s: %.2f", quantity, !imported ? "" : "imported ", name, salesPrice);
+		return String.format(Locale.UK, "%d %s%s: %.2f", quantity, !imported ? "" : "imported ", name, salesPrice);
 	}
 
 }
