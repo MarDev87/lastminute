@@ -5,13 +5,19 @@ import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import it.mardev.lastminute.model.Article;
 import it.mardev.lastminute.model.DutyFreeArticle;
 
+@ActiveProfiles("test")
+@SpringBootTest
 class ArticleFactoryTest {
 
-	private ArticleFactory articleFactory = new ArticleFactory();
+	@Autowired
+	private ArticleFactory articleFactory;
 
 	@Test
 	void given_a_chocolate_chips_article_should_return_dutyfreearticle_instance() {
