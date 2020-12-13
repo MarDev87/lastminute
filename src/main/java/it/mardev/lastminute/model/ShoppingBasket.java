@@ -30,8 +30,12 @@ public class ShoppingBasket implements Printable {
 
 	@Override
 	public String print() {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuilder sb = new StringBuilder();
+		for (Article article : articles) {
+			sb.append(article.print());
+			sb.append("\n");
+		}
+		return sb.toString();
 	}
 
 }
