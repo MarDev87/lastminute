@@ -12,8 +12,9 @@ public class Receipt implements Printable {
 		this.shoppingBasket = shoppingBasket;
 		this.total = 0;
 		for (Article article : shoppingBasket.getArticles()) {
-			total += article.getSalesPrice();
-			salesTaxes += article.getSalesTax();
+			float artSalesTaxes = article.getSalesTax();
+			salesTaxes += artSalesTaxes;
+			total += article.getSalesPrice() + artSalesTaxes;
 		}
 	}
 

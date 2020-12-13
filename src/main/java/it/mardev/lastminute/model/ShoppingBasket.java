@@ -42,4 +42,16 @@ public class ShoppingBasket implements Printable {
 		return sb.toString();
 	}
 
+	public String printWithLineNumber() {
+		StringBuilder sb = new StringBuilder();
+		int index = 1;
+		for (Article article : articles) {
+			sb.append(index++);
+			sb.append(" - ");
+			sb.append(article.print());
+			sb.append("\n");
+		}
+		return sb.toString();
+	}
+
 }
