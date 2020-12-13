@@ -38,7 +38,7 @@ class ArticleTest {
 
 	@Test
 	void given_generic_article_imported_should_print() {
-		Article article = new Article(1, "generic", 10, true);
+		Article article = new Article(1, "imported generic", 10, true);
 		assertEquals("1 imported generic: 11.50", article.print());
 	}
 
