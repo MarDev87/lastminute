@@ -14,6 +14,18 @@ public class ArticleFactory {
 	@Value("#{'${products.dutyfree}'.split(',')}")
 	private List<String> dutyFree;
 
+	/**
+	 * Return an article instance with different tax rate following the schema:\n
+	 * Basic sales tax is applicable at a rate of 10% on all goods, except books,
+	 * food, and medical products that are exempt. Import duty is an additional
+	 * sales tax applicable on all imported goods at a rate of 5%, with no
+	 * exemptions
+	 * 
+	 * @param quantity   Article quantity
+	 * @param name       Article name
+	 * @param salesPrice Sales Price tax excluded
+	 * @return An article instance with correct tax calculation and normalized name
+	 */
 	public Article getArticle(int quantity, String name, float salesPrice) {
 		Article article = null;
 		String lcName = name.toLowerCase();
